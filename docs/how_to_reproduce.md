@@ -66,4 +66,4 @@ Ou directement éditer `data/benchmark.json` dans la clé `hypotheses_tco`.
 ## Vérification des scores
 
 Les formules complètes sont documentées dans [METHODOLOGY.md](../METHODOLOGY.md).
-Pour tout écart constaté : govtech@theodo.fr
+Pour tout écart constaté : https://github.com/Rigaut77/benchmark-ia-souveraine-data/issues/new

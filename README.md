@@ -19,7 +19,7 @@ Cette étude est produite par **Theodo GovTech**, qui accompagne des directions 
 - **Aucun fournisseur du panel évalué n'a commandité cette étude.**
 - **Aucun fournisseur n'a eu de droit de relecture sur les résultats.**
 - Theodo GovTech intervient sur des projets impliquant certaines des configurations évaluées (notamment Albert API et Mistral) — ces relations professionnelles sont publiques.
-- Pour signaler un conflit d'intérêts présumé ou une erreur factuelle : **govtech@theodo.fr**
+- Pour signaler un conflit d'intérêts présumé ou une erreur factuelle : **https://github.com/Rigaut77/benchmark-ia-souveraine-data/issues/new
 
 ---
 
@@ -119,6 +119,5 @@ Toute réutilisation à des fins non commerciales est autorisée avec citation :
 
 ## Contact
 
-- **Email :** govtech@theodo.fr
-- **Signaler une erreur :** govtech@theodo.fr (objet : "Benchmark IA Souveraine — signalement")
-- **Site Theodo GovTech :** https://www.theodo.fr/govtech
+- **Signaler une erreur ou un conflit d'intérêts :** [Ouvrir une issue GitHub](https://github.com/Rigaut77/benchmark-ia-souveraine-data/issues/new)
+- **Site Theodo GovTech :** https://www.theodo.com/secteur/secteur-public
