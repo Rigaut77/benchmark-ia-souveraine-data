@@ -1,12 +1,12 @@
 # Benchmark IA Souveraine — Données & Méthodologie
 
-[![Version](https://img.shields.io/badge/version-2.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.1-blue)](CHANGELOG.md)
 [![Licence](https://img.shields.io/badge/licence-CC%20BY--NC%204.0-green)](LICENSE)
 [![Juin 2026](https://img.shields.io/badge/mise%20à%20jour-juin%202026-orange)]()
 
-Données brutes et méthodologie complète du **Benchmark IA Souveraine** — 14 configurations LLM évaluées sur Performance, Souveraineté (IRN) et Coût d'exploitation, lues à travers **7 profils d'application** (de la défense classifiée aux collectivités) et une **matrice de décision criticité × mode de déploiement**.
+Données brutes et méthodologie complète du **Benchmark IA Souveraine** — 15 configurations LLM évaluées sur Performance, Souveraineté (IRN) et Coût d'exploitation, lues à travers **7 profils d'application** (de la défense classifiée aux collectivités) et une **matrice de décision criticité × mode de déploiement**.
 
-## Régénérer les données (v2.0)
+## Régénérer les données (v2.1)
 
 La source de vérité est `data/_source_data.json` (entrées brutes). Le générateur calcule tous les scores dérivés et produit le JSON + le classeur :
 
@@ -66,11 +66,11 @@ benchmark-ia-souveraine-data/
 ### benchmark.json
 
 Fichier JSON structuré contenant :
-- **11 configurations** évaluées (LLM managés API + self-hosted EU)
+- **15 configurations** évaluées (LLM managés API + self-hosted EU)
 - **15 critères IRN** (Indice de Résilience Numérique, référentiel aDRI)
 - **4 benchmarks performance** : Arena Elo, Coding, MMLU-Pro, AAII
 - **Hypothèses TCO** pour les configurations self-hosted
-- **4 profils de pondération** : R&D/Expérimentation, Productivité & usage interne, Données sensibles / secteur régulé, Régalien / défense
+- **7 profils d'application** (A1 Classifiées défense → A7 Collectivités) + 4 profils historiques P1–P4 (rétro-compatibilité site v1)
 
 ### Comment reproduire
 
@@ -80,12 +80,12 @@ git clone https://github.com/Rigaut77/benchmark-ia-souveraine-data.git
 cd benchmark-ia-souveraine-data
 
 # Installer les dépendances
-pip install pandas openpyxl
+pip install openpyxl
 
-# Régénérer le JSON depuis le fichier Excel source
-python scripts/extract_data.py
+# Régénérer le JSON + le classeur depuis la source _source_data.json
+python scripts/generate_benchmark.py
 
-# Le fichier data/benchmark.json est mis à jour
+# Les fichiers data/benchmark.json et data/benchmark_llm_fusion_finale.xlsx sont mis à jour
 ```
 
 ---
@@ -109,7 +109,7 @@ Les données et la méthodologie sont publiées sous **[CC BY-NC 4.0](LICENSE)**
 
 Toute réutilisation à des fins non commerciales est autorisée avec citation :
 
-> Theodo GovTech, *Benchmark IA Souveraine v1.0*, mai 2026.  
+> Theodo GovTech, *Benchmark IA Souveraine v2.1*, juin 2026.  
 > https://benchmark-llm-souv.vercel.app · https://github.com/Rigaut77/benchmark-ia-souveraine-data
 
 ---
@@ -118,12 +118,12 @@ Toute réutilisation à des fins non commerciales est autorisée avec citation :
 
 ```
 @misc{theodo2026benchmark,
-  title   = {Benchmark IA Souveraine v1.0},
+  title   = {Benchmark IA Souveraine v2.1},
   author  = {Theodo GovTech},
   year    = {2026},
-  month   = {mai},
+  month   = {juin},
   url     = {https://benchmark-llm-souv.vercel.app},
-  note    = {11 configurations LLM évaluées sur Performance, IRN et Coût}
+  note    = {15 configurations LLM évaluées sur Performance, IRN et Coût, via 7 profils d'application}
 }
 ```
 
