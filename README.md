@@ -1,10 +1,22 @@
 # Benchmark IA Souveraine — Données & Méthodologie
 
-[![Version](https://img.shields.io/badge/version-1.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0-blue)](CHANGELOG.md)
 [![Licence](https://img.shields.io/badge/licence-CC%20BY--NC%204.0-green)](LICENSE)
-[![Mai 2026](https://img.shields.io/badge/mise%20à%20jour-mai%202026-orange)]()
+[![Juin 2026](https://img.shields.io/badge/mise%20à%20jour-juin%202026-orange)]()
 
-Données brutes et méthodologie complète du **Benchmark IA Souveraine** — 11 configurations LLM évaluées sur Performance, Souveraineté (IRN) et Coût d'exploitation.
+Données brutes et méthodologie complète du **Benchmark IA Souveraine** — 14 configurations LLM évaluées sur Performance, Souveraineté (IRN) et Coût d'exploitation, lues à travers **7 profils d'application** (de la défense classifiée aux collectivités) et une **matrice de décision criticité × mode de déploiement**.
+
+## Régénérer les données (v2.0)
+
+La source de vérité est `data/_source_data.json` (entrées brutes). Le générateur calcule tous les scores dérivés et produit le JSON + le classeur :
+
+```bash
+pip install openpyxl
+python scripts/generate_benchmark.py
+# → data/benchmark.json + data/benchmark_llm_fusion_finale.xlsx
+```
+
+> `scripts/extract_data.py` (v1, XLSX→JSON) est conservé pour mémoire mais remplacé par `generate_benchmark.py`.
 
 🌐 **Site interactif :** https://benchmark-llm-souv.vercel.app
 

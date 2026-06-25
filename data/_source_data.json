@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "version": "2.1",
+    "date": "2026-06",
+    "source": "Theodo GovTech — https://github.com/Rigaut77/benchmark-ia-souveraine-data",
+    "licence": "CC BY-NC 4.0",
+    "note": "v2.1 — panel rafraichi fin juin 2026 : ajout Claude Fable 5 (nouveau #1 AA Index, sortie 09/06/2026, puis suspendu 12/06/2026 pour ressortissants etrangers sous directive US export-control — illustration concrete du risque extraterritorial/continuite). Leaders perf releves. Les valeurs marquees 'Projection'/'Estimation' sont des hypotheses explicites."
+  },
+  "irn_criteria": [
+    {"id": "C01", "label": "Localisation/nationalité maison mère", "weight": 1.5},
+    {"id": "C02", "label": "Conformité réglementaire nat./UE", "weight": 1.0},
+    {"id": "C03", "label": "Maîtrise lois extraterritoriales", "weight": 1.5},
+    {"id": "C04", "label": "Contrôle régional SOC & support", "weight": 1.0},
+    {"id": "C05", "label": "Localisation données & traitements", "weight": 1.2},
+    {"id": "C06", "label": "Autonomie d'opération", "weight": 1.5},
+    {"id": "C07", "label": "Continuité face arrêt fournisseur", "weight": 1.5},
+    {"id": "C08", "label": "Télécom & connectivité", "weight": 1.0},
+    {"id": "C09", "label": "Dépendance supply chain (GPU)", "weight": 1.0},
+    {"id": "C10", "label": "Interopérabilité", "weight": 1.0},
+    {"id": "C11", "label": "Portabilité des workloads", "weight": 1.2},
+    {"id": "C12", "label": "Ouverture code & licence", "weight": 1.3},
+    {"id": "C13", "label": "Transparence architecture", "weight": 0.7},
+    {"id": "C14", "label": "Certifications sécurité", "weight": 1.0},
+    {"id": "C15", "label": "Autonomie patchs & vulnérabilités", "weight": 1.0}
+  ],
+  "leaders_perf": {"arena": 1552, "coding": 1580, "mmlu": 91, "aaii": 78},
+  "perf_weights": {"arena": 0.35, "coding": 0.35, "mmlu": 0.20, "aaii": 0.10},
+  "hypotheses_tco": {"h100_per_hour": 3.0, "a100_per_hour": 1.5, "utilisation": 0.6, "overhead": 1.4},
+  "deployment_modes": [
+    {"id": "public", "label": "SaaS public non souverain", "examples": "Copilot, Cursor, Claude, GPT…"},
+    {"id": "souverain", "label": "SaaS souverain SecNumCloud", "examples": "Albert aide au code, Mistral SNC"},
+    {"id": "autoheberge", "label": "Modèle auto-hébergé contrôlé", "examples": "Codestral, Qwen Coder on-prem"}
+  ],
+  "app_profiles": [
+    {"id": "A1", "name": "Classifiées défense, renseignement", "subtitle": "Code lui-même classé DR ou supérieur", "w_irn": 0.90, "w_perf": 0.10, "reco": {"public": "À proscrire", "souverain": "À proscrire", "autoheberge": "Si homologué DR"}},
+    {"id": "A2", "name": "Régaliennes", "subtitle": "Justice, fisc, identité, douanes", "w_irn": 0.80, "w_perf": 0.20, "reco": {"public": "À proscrire", "souverain": "Par défaut", "autoheberge": "Acceptable"}},
+    {"id": "A3", "name": "OIV et leurs SIIV", "subtitle": "Énergie, télécoms, transports, finance", "w_irn": 0.70, "w_perf": 0.30, "reco": {"public": "À proscrire", "souverain": "Analyse de risque", "autoheberge": "Préféré"}},
+    {"id": "A4", "name": "Données massives sensibles", "subtitle": "Santé, social, fiscal, biométrie", "w_irn": 0.65, "w_perf": 0.35, "reco": {"public": "À proscrire", "souverain": "Recommandé", "autoheberge": "Acceptable"}},
+    {"id": "A5", "name": "Infrastructures de confiance État", "subtitle": "Crypto, PKI, auth, RIE, SIAAG", "w_irn": 0.72, "w_perf": 0.28, "reco": {"public": "À proscrire", "souverain": "Hors briques crypto", "autoheberge": "Préféré"}},
+    {"id": "A6", "name": "Entités importantes NIS 2 non régaliennes", "subtitle": "Opérateurs publics non critiques", "w_irn": 0.45, "w_perf": 0.55, "reco": {"public": "Contrôles forts", "souverain": "Recommandé", "autoheberge": "Acceptable"}},
+    {"id": "A7", "name": "Collectivités, code non sensible", "subtitle": "Site institutionnel, outil interne", "w_irn": 0.25, "w_perf": 0.75, "reco": {"public": "Acceptable", "souverain": "Acceptable", "autoheberge": "Acceptable"}}
+  ],
+  "legacy_profiles": {
+    "P1": {"id": "P1", "name": "R&D / exploration", "use_case": "Curiosité technique, prototypage : la perf brute prime.", "w_irn": 0.2, "w_perf": 0.8},
+    "P2": {"id": "P2", "name": "Métier non-critique", "use_case": "Productivité, contenu, support N1 : équilibre tilté perf.", "w_irn": 0.35, "w_perf": 0.65},
+    "P3": {"id": "P3", "name": "SI critique entreprise", "use_case": "Cœur métier régulé, données sensibles : équilibre tilté souveraineté.", "w_irn": 0.55, "w_perf": 0.45},
+    "P4": {"id": "P4", "name": "Souverain régulé / défense", "use_case": "OIV, défense, secret : la souveraineté est non-négociable.", "w_irn": 0.75, "w_perf": 0.25}
+  },
+  "configurations": [
+    {"id": "C1", "name": "Mistral Small 4 self-hosted EU", "short": "Mistral Small s-h", "bloc": "France", "country": "France", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Mistral-Small-4-24B", "tier": "Entry", "scores_irn": [5,4,5,5,5,5,5,5,3,5,5,5,5,4,5], "arena": 1290, "coding": 1310, "mmlu": 68, "aaii": 26, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 1, "throughput": 150, "latency": 0.7, "cost_listed": null, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C2", "name": "Mistral Medium 3.5 via AI Studio EU", "short": "Mistral Medium API", "bloc": "France", "country": "France", "mode": "API managée régionale", "deploy": "souverain", "model": "Mistral Medium 3.5", "tier": "Mid", "scores_irn": [5,4,4,3,4,2,3,2,3,4,4,4,4,5,2], "arena": 1432, "coding": 1458, "mmlu": 80, "aaii": 53, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 110, "latency": 1.2, "cost_listed": 0.9, "perf_flag": "Public AA / OpenLM — défaut Le Chat, remplace Devstral 2 dans Vibe (juin 2026)"},
+    {"id": "C3", "name": "Aleph Alpha PhariaAI on-prem (Pharia native)", "short": "Aleph PhariaAI", "bloc": "Allemagne", "country": "Allemagne", "mode": "Suite souveraine on-prem", "deploy": "autoheberge", "model": "Pharia native (instanciation)", "tier": "Mid", "scores_irn": [4,5,5,5,5,4,5,4,4,5,5,3,5,4,4], "arena": 1390, "coding": 1390, "mmlu": 75, "aaii": 40, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 2, "throughput": 90, "latency": 1.5, "cost_listed": null, "perf_flag": "Estimation Pharia native"},
+    {"id": "C4", "name": "Meta Llama 4 Maverick self-hosted EU", "short": "Llama 4 Maverick s-h", "bloc": "États-Unis", "country": "États-Unis", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Llama-4-Maverick-17B-128E", "tier": "Mid", "scores_irn": [2,3,2,5,5,5,4,4,3,4,5,3,4,2,5], "arena": 1300, "coding": 1320, "mmlu": 81, "aaii": 42, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 4, "throughput": 113, "latency": 1.03, "cost_listed": null, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C5", "name": "Google Gemini 3.5 Pro on Vertex AI EU", "short": "Gemini 3.5 Pro", "bloc": "États-Unis", "country": "États-Unis", "mode": "API cloud régional", "deploy": "public", "model": "Gemini-3.5-Pro", "tier": "Frontier", "scores_irn": [2,5,1,3,5,2,3,2,1,4,3,1,3,5,2], "arena": 1535, "coding": 1552, "mmlu": 90.5, "aaii": 74, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 120, "latency": 30.0, "cost_listed": 4.5, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C6", "name": "OpenAI GPT-5.5-high (résidence UE)", "short": "GPT-5.5-high", "bloc": "États-Unis", "country": "États-Unis", "mode": "API managée résidence UE", "deploy": "public", "model": "GPT-5.5-high", "tier": "Frontier", "scores_irn": [2,4,1,2,3,1,2,2,1,3,2,1,2,5,1], "arena": 1540, "coding": 1558, "mmlu": 90, "aaii": 75, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 90, "latency": 100.0, "cost_listed": 6.0, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C7", "name": "Anthropic Claude Opus 4.8 (API directe)", "short": "Claude Opus 4.8", "bloc": "États-Unis", "country": "États-Unis", "mode": "API managée directe", "deploy": "public", "model": "Claude Opus 4.8 Thinking", "tier": "Frontier", "scores_irn": [2,4,1,2,2,1,2,2,1,3,2,1,2,5,1], "arena": 1545, "coding": 1562, "mmlu": 90.8, "aaii": 76, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 55, "latency": 18.0, "cost_listed": 11.0, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C8", "name": "Alibaba Qwen3.7-Max via Model Studio FRA", "short": "Qwen3.7-Max", "bloc": "Chine", "country": "Chine", "mode": "API cloud régional", "deploy": "public", "model": "Qwen3.7-Max", "tier": "Frontier", "scores_irn": [1,3,1,3,4,2,2,2,2,4,4,5,3,3,2], "arena": 1495, "coding": 1510, "mmlu": 88.5, "aaii": 71, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 55, "latency": 2.3, "cost_listed": 1.5, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C9", "name": "DeepSeek V4 Thinking (API directe)", "short": "DeepSeek V4", "bloc": "Chine", "country": "Chine", "mode": "API managée directe", "deploy": "public", "model": "DeepSeek-V4-Thinking", "tier": "Frontier", "scores_irn": [1,1,1,1,1,1,1,1,1,4,4,4,2,1,1], "arena": 1470, "coding": 1485, "mmlu": 87.5, "aaii": 68, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 55, "latency": 1.6, "cost_listed": 0.5, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C10", "name": "Mistral Large 3 self-hosted EU", "short": "Mistral Large 3 s-h", "bloc": "France", "country": "France", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Mistral-Large-3-2512 (MoE 675B/41B, Apache 2.0)", "tier": "Frontier", "scores_irn": [5,4,5,5,5,5,5,5,2,5,5,5,5,4,5], "arena": 1445, "coding": 1460, "mmlu": 83, "aaii": 58, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 4, "throughput": 95, "latency": 1.2, "cost_listed": null, "perf_flag": "Public AA / OpenLM"},
+    {"id": "C11", "name": "Meta Llama 4 Behemoth self-hosted EU", "short": "Llama 4 Behemoth s-h", "bloc": "États-Unis", "country": "États-Unis", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Llama-4-Behemoth", "tier": "Frontier", "scores_irn": [2,3,2,5,5,5,4,4,2,4,5,3,4,2,5], "arena": 1480, "coding": 1495, "mmlu": 88, "aaii": 70, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 8, "throughput": 60, "latency": 2.0, "cost_listed": null, "perf_flag": "Projection juin 2026"},
+    {"id": "C12", "name": "Albert API (Etalab/DINUM, SecNumCloud)", "short": "Albert API", "bloc": "France", "country": "France", "mode": "API souveraine État (SecNumCloud)", "deploy": "souverain", "model": "Albert (Mistral served) — plateforme Etalab", "tier": "Mid", "scores_irn": [5,5,5,5,5,4,4,4,3,4,4,4,4,5,3], "arena": 1420, "coding": 1440, "mmlu": 79, "aaii": 50, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 95, "latency": 1.4, "cost_listed": 1.0, "perf_flag": "Estimation (modèle sous-jacent Mistral)"},
+    {"id": "C13", "name": "Mistral Devstral 2 self-hosted EU", "short": "Devstral 2 s-h", "bloc": "France", "country": "France", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Devstral-2-123B (coding agent)", "tier": "Mid", "scores_irn": [5,4,5,5,5,5,5,5,2,5,5,5,5,4,5], "arena": 1390, "coding": 1470, "mmlu": 76, "aaii": 50, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 4, "throughput": 85, "latency": 1.2, "cost_listed": null, "perf_flag": "Public AA / éditeur — spécialiste code"},
+    {"id": "C14", "name": "Qwen3.6-27B Coder on-prem", "short": "Qwen3.6 Coder", "bloc": "Chine", "country": "Chine", "mode": "Open-weight self-hosted", "deploy": "autoheberge", "model": "Qwen3.6-27B (Apache 2.0, 1 GPU)", "tier": "Entry", "scores_irn": [1,3,2,5,5,5,4,4,2,5,5,5,3,2,5], "arena": 1330, "coding": 1420, "mmlu": 74, "aaii": 38, "mode_expl": "self_hosted", "gpu_type": "H100", "gpu_count": 1, "throughput": 140, "latency": 0.8, "cost_listed": null, "perf_flag": "Public AA / éditeur — spécialiste code"},
+    {"id": "C15", "name": "Anthropic Claude Fable 5 (API directe)", "short": "Claude Fable 5", "bloc": "États-Unis", "country": "États-Unis", "mode": "API managée directe", "deploy": "public", "model": "Claude Fable 5 (poids partagés Mythos 5)", "tier": "Frontier", "scores_irn": [2,4,1,2,2,1,1,2,1,3,2,1,2,5,1], "arena": 1552, "coding": 1580, "mmlu": 91, "aaii": 78, "mode_expl": "managed", "gpu_type": null, "gpu_count": null, "throughput": 50, "latency": 22.0, "cost_listed": 22.0, "perf_flag": "Public AA — sortie 09/06/2026, nouveau #1 AA Index. Suspendu 12/06/2026 pour ressortissants étrangers (directive US export-control) → continuité (C07) & lois extraterritoriales (C03) au plus bas. Perf projetée."}
+  ]
+}
